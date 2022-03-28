@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class Player : MonoBehaviour
     public int brickNumber;
     [SerializeField] private Text brickText;
     private bool canMove;
+    public GameObject screen;
+    public CanvasGroup regularUI;
+    public static bool notPaused;
 
     public bool hasGoat;
     public bool hasTelegram;
@@ -44,6 +48,8 @@ public class Player : MonoBehaviour
     {
         brickText.text = brickNumber.ToString();
         canMove = true;
+        notPaused = true;
+        screen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -74,6 +80,20 @@ public class Player : MonoBehaviour
             {
             anime.SetBool("movingQuestion", false);
             }
+        }
+
+        if (Input.GetKeyDown("p"))
+        {
+            StartTalking();
+            screen.SetActive(true);
+
+            regularUI.alpha = 0.5f;
+            regularUI.interactable = false;
+            regularUI.blocksRaycasts = false;
+
+            notPaused = false;
+
+            Time.timeScale = 0f;
         }
     }
 
@@ -109,34 +129,53 @@ public class Player : MonoBehaviour
 
     public bool exchangeMoney(int shopID, int itemcost)
     {
-        if(brickNumber >= itemcost)
-        {
-            if(shopID == 1)
+            if (brickNumber >= itemcost)
             {
-                hasGoat = true;
-            }
-            if (shopID == 2)
-            {
-                hasTelegram = true;
-            }
-            if (shopID == 3)
-            {
-                hasDegree = true;
-            }
-            if (shopID == 4)
-            {
-                hasFlag = true;
-                
-            }
-            
-            brickNumber -= itemcost;
-            brickText.text = brickNumber.ToString();
+                if (shopID == 1)
+                {
+                    hasGoat = true;
+                }
+                if (shopID == 2)
+                {
+                    hasTelegram = true;
+                }
+                if (shopID == 3)
+                {
+                    hasDegree = true;
+                }
+                if (shopID == 4)
+                {
+                    hasFlag = true;
+                }
 
-            return (true);
-        }
-        else
-        {
-            return (false);
-        }
+                brickNumber -= itemcost;
+                brickText.text = brickNumber.ToString();
+
+                return (true);
+            }
+            else
+            {
+                return (false);
+            }
+    }
+
+    public void resumeGame()
+    {
+        screen.SetActive(false);
+
+        regularUI.alpha = 1f;
+        regularUI.interactable = true;
+        regularUI.blocksRaycasts = true;
+
+        Time.timeScale = 1f;
+
+        notPaused = true;
+
+        DoneTalking();
+    }
+
+    public void endGame()
+    {
+        print("you exited the game");
     }
 }

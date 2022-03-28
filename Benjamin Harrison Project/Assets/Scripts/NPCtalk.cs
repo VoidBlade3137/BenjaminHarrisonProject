@@ -8,25 +8,20 @@ public class NPCtalk : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Player.notPaused)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (hit.collider.gameObject.name == "NPC")
+            if (Input.GetKeyDown("space"))
             {
-                FindObjectOfType<Player>().StartTalking();
-                FindObjectOfType<DialougeManager>().StartDialouge(dialouge);
-            }
-            else if (hit.collider.gameObject.name == "OpossumShop")
-            {
-                FindObjectOfType<Player>().StartTalking();
-                FindObjectOfType<DialougeManager>().StartShopping();
-            }
-            else
-            {
-                return;
+                if (this.gameObject.tag == "Talkable")
+                {
+                    FindObjectOfType<Player>().StartTalking();
+                    FindObjectOfType<DialougeManager>().StartDialouge(dialouge);
+                }
+                else if (this.gameObject.tag == "Shop")
+                {
+                    FindObjectOfType<Player>().StartTalking();
+                    FindObjectOfType<DialougeManager>().StartShopping();
+                }
             }
         }
     }

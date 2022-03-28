@@ -26,9 +26,9 @@ public class DialougeManager : MonoBehaviour
     
     public void BacktoGame()
     {
-        anime.SetBool("isShopping", false);
-        anime.SetBool("isOpen", false);
-        FindObjectOfType<Player>().DoneTalking();
+            anime.SetBool("isShopping", false);
+            anime.SetBool("isOpen", false);
+            FindObjectOfType<Player>().DoneTalking();
     }
 
     public void StartShopping()
@@ -50,15 +50,15 @@ public class DialougeManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
-        {
-            BacktoGame();
-            return;
-        }
-        string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        AlternatePort();
-        StartCoroutine(TypeSentence(sentence));
+            if (sentences.Count == 0)
+            {
+                BacktoGame();
+                return;
+            }
+            string sentence = sentences.Dequeue();
+            StopAllCoroutines();
+            AlternatePort();
+            StartCoroutine(TypeSentence(sentence));
     }
 
     IEnumerator TypeSentence (string sentence)

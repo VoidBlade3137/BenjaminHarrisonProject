@@ -124,7 +124,9 @@ MonoBehaviour:
   anime: {fileID: 1814343018}
   sr: {fileID: 2152888958401154062}
   brickNumber: 0
-  brickText: {fileID: 0}
+  brickText: {fileID: 1373579584936737705, guid: 76d891026359ea844acfa9411fb2c3a3, type: 3}
+  screen: {fileID: 1812042529840946684, guid: c4ea2847bdcf3334392cc5939ee7203b, type: 3}
+  uiBar: {fileID: 3419850633144389485, guid: a0df9a3384a3b074396aedfad4b3818e, type: 3}
   hasGoat: 0
   hasTelegram: 0
   hasDegree: 0
