@@ -7,13 +7,13 @@ public class DebatePlayer : MonoBehaviour
 {
     private SpriteRenderer SR;
     public Sprite defaultImg;
-    public Sprite leftImg;
-    public Sprite rightImg;
-    public Sprite upImg;
-    public Sprite downImg;
+    public Sprite pointImg;
 
     public bool havingGoat;
-    public GameObject theGoat;
+    public GameObject UpGoat;
+    public GameObject LeftGoat;
+    public GameObject RightGoat;
+    public GameObject DownGoat;
 
     public int debateScore;
     [SerializeField] private Text scoreText;
@@ -33,25 +33,28 @@ public class DebatePlayer : MonoBehaviour
 
     public void moveToBeat(string noteType)
     {
-        if (noteType == "left")
+        noGoats();
+
+        SR.sprite = pointImg;
+
+        if (havingGoat)
         {
-            SR.sprite = leftImg;
-        }
-        if (noteType == "right")
-        {
-            SR.sprite = rightImg;
-            if (havingGoat)
+            if (noteType == "left")
             {
-                theGoat.SetActive(true);
+                LeftGoat.SetActive(true);
             }
-        }
-        if (noteType == "up")
-        {
-            SR.sprite = upImg;
-        }
-        if (noteType == "down")
-        {
-            SR.sprite = downImg;
+            if (noteType == "right")
+            {
+                RightGoat.SetActive(true);
+            }
+            if (noteType == "up")
+            {
+                UpGoat.SetActive(true);
+            }
+            if (noteType == "down")
+            {
+                DownGoat.SetActive(true);
+            }
         }
 
         debateScore++;
@@ -62,11 +65,21 @@ public class DebatePlayer : MonoBehaviour
 
     IEnumerator returnToNormal()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(.2f);
         SR.sprite = defaultImg;
+
+        yield return new WaitForSeconds(2f);
+        noGoats();
+    }
+
+    private void noGoats()
+    {
         if (havingGoat)
         {
-            theGoat.SetActive(false);
+            LeftGoat.SetActive(false);
+            RightGoat.SetActive(false);
+            UpGoat.SetActive(false);
+            DownGoat.SetActive(false);
         }
     }
 }
