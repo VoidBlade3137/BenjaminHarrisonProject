@@ -9,7 +9,7 @@ public class DebatePlayer : MonoBehaviour
     public Sprite defaultImg;
     public Sprite pointImg;
 
-    public bool havingGoat;
+    public bool hasGoat;
     public GameObject UpGoat;
     public GameObject LeftGoat;
     public GameObject RightGoat;
@@ -37,7 +37,7 @@ public class DebatePlayer : MonoBehaviour
 
         SR.sprite = pointImg;
 
-        if (havingGoat)
+        if (hasGoat)
         {
             if (noteType == "left")
             {
@@ -74,7 +74,7 @@ public class DebatePlayer : MonoBehaviour
 
     private void noGoats()
     {
-        if (havingGoat)
+        if (hasGoat)
         {
             LeftGoat.SetActive(false);
             RightGoat.SetActive(false);

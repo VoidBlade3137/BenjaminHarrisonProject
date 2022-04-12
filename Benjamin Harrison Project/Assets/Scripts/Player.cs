@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public static Player control;
-
     public float moveSpeed;
     public Rigidbody2D rb;
     Vector2 movement;
@@ -29,19 +27,13 @@ public class Player : MonoBehaviour
     public bool hasBook;
     public bool hasChair;
 
-    //call before start
-    void Awake()
-    {
-        if(control == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            control = this;
-        }
-        else if(control != this)
-        {
-            Destroy(gameObject);
-        }
-    }
+    public int rawScore;
+    public int d1Score;
+    public int d2Score;
+    public int d3Score;
+    public int d4Score;
+    public int d5Score;
+    public int totalScore;
 
     // Start is called before the first frame update
     void Start()
@@ -177,5 +169,26 @@ public class Player : MonoBehaviour
     public void endGame()
     {
         print("you exited the game");
+    }
+
+    public void loadingValues(int bricks, bool goat, bool telegram, bool degree, bool flag, bool cane, bool sword, bool book, bool chair, int raw, int d1, int d2, int d3, int d4, int d5)
+    {
+        brickNumber = bricks;
+        hasGoat = goat;
+        hasTelegram = telegram;
+        hasDegree = degree;
+        hasFlag = flag;
+        hasCane = cane;
+        hasSword = sword;
+        hasBook = book;
+        hasChair = chair;
+        rawScore = raw;
+        d1Score = d1;
+        d2Score = d2;
+        d3Score = d3;
+        d4Score = d4;
+        d5Score = d5;
+
+        brickText.text = brickNumber.ToString();
     }
 }
