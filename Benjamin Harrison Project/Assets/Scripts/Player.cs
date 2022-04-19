@@ -38,10 +38,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        resumeGame();
         brickText.text = brickNumber.ToString();
-        canMove = true;
-        notPaused = true;
-        screen.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -105,6 +104,7 @@ public class Player : MonoBehaviour
             Collect_Brick cb = collision.GetComponent<Collect_Brick>();
             brickNumber += cb.brickValue;
             brickText.text = brickNumber.ToString();
+            rawScore += 10;
         }
     }
 
@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
                 brickNumber -= itemcost;
                 brickText.text = brickNumber.ToString();
 
+                rawScore += 20;
                 return (true);
             }
             else
@@ -190,5 +191,10 @@ public class Player : MonoBehaviour
         d5Score = d5;
 
         brickText.text = brickNumber.ToString();
+    }
+
+    public void send2Save()
+    {
+        SaveData.control.overwroldSaving(brickNumber, hasGoat, hasTelegram, hasDegree, hasFlag, hasCane, hasSword, hasBook, hasChair, rawScore, d1Score, d2Score, d3Score, d4Score, d5Score);
     }
 }

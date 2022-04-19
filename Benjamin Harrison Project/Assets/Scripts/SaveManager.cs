@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -17,11 +18,11 @@ public class SaveManager : MonoBehaviour
     {
         if (inOverworld)
         {
-            FindObjectOfType<SaveData>().loadInOverworld(shopGoat, shopTelegram, shopDegree, shopFlag);
+            SaveData.control.loadInOverworld(shopGoat, shopTelegram, shopDegree, shopFlag);
         }
         else if (inDebate)
         {
-            FindObjectOfType<SaveData>().loadInRhythm();
+            SaveData.control.loadInRhythm();
         }
     }
 
@@ -31,15 +32,48 @@ public class SaveManager : MonoBehaviour
         
     }
 
-    public void Save()
+    public void quitButton()
     {
         if (inOverworld)
         {
-            FindObjectOfType<SaveData>().overwroldSaving();
+            FindObjectOfType<Player>().send2Save();
+            SaveData.control.exit();
         }
         else if (inDebate)
         {
-            FindObjectOfType<SaveData>().rhythmSaving(debateNumber);
+            SaveData.control.exit();
+        }
+        SceneManager.LoadScene(0);
+    }
+
+    public void sceneChangeSaving()
+    {
+        if (inOverworld)
+        {
+            FindObjectOfType<Player>().send2Save();
+        }
+        else if (inDebate)
+        {
+            SaveData.control.rhythmSaving(debateNumber);
+        }
+    }
+
+    public void startGame()
+    {
+        SaveData.control.newGame();
+        SceneManager.LoadScene(1);
+    }
+
+    public void resumeGame()
+    {
+        if(PlayerPrefs.GetInt("GameData", 0) == 1)
+        {
+            SaveData.control.continueGame();
+            SceneManager.LoadScene(PlayerPrefs.GetInt("Scene", 1));
+        }
+        else
+        {
+            print("there is no save data to load");
         }
     }
 }

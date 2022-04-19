@@ -923,6 +923,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f5dae81fbd64ae4f82f35a33266eb60, type: 3}
+--- !u!114 &993623273254671852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 993623272711067349, guid: 3f5dae81fbd64ae4f82f35a33266eb60, type: 3}
+  m_PrefabInstance: {fileID: 993623273254671851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d55491eca288b64aa271f028d1e6ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1270434849384676794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -949,7 +960,15 @@ PrefabInstance:
     - target: {fileID: 4516054714084283988, guid: c4ea2847bdcf3334392cc5939ee7203b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1887981659}
+      objectReference: {fileID: 993623273254671852}
+    - target: {fileID: 4516054714084283988, guid: c4ea2847bdcf3334392cc5939ee7203b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: quitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516054714084283988, guid: c4ea2847bdcf3334392cc5939ee7203b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SaveManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5180734447698957312, guid: c4ea2847bdcf3334392cc5939ee7203b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1043,6 +1062,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1832160199420149608, guid: 92174499389f1f249a538d8cc8ac971e, type: 3}
+      propertyPath: degree
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1832160199420149609, guid: 92174499389f1f249a538d8cc8ac971e, type: 3}
       propertyPath: m_Name
       value: SaveData

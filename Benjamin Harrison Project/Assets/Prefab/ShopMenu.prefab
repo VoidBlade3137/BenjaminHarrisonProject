@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopID: 2
-  itemCost: 2
+  itemCost: 8
   profil: {fileID: 5980260034955086314}
 --- !u!1 &5980260034637595729
 GameObject:
@@ -183,9 +183,9 @@ RectTransform:
   - {fileID: 5980260035255985841}
   - {fileID: 5980260034955086309}
   - {fileID: 5980260034472168250}
-  - {fileID: 5980260035105957193}
-  - {fileID: 5980260034737501114}
   - {fileID: 5980260036225036679}
+  - {fileID: 5980260034737501114}
+  - {fileID: 5980260035105957193}
   - {fileID: 5980260036262607040}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -474,8 +474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopID: 3
-  itemCost: 3
-  profil: {fileID: 5980260035105957198}
+  itemCost: 10
+  profil: {fileID: 5980260036225036676}
 --- !u!1 &5980260034955086308
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 5980260035105957199}
   - component: {fileID: 5980260035105957198}
   m_Layer: 5
-  m_Name: Item3
+  m_Name: Item4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,7 +581,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5980260034637595734}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -706,7 +706,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Telegram
 
-    Value: 2'
+    Value: 8'
 --- !u!1 &5980260035255985840
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopID: 1
-  itemCost: 1
+  itemCost: 5
   profil: {fileID: 5980260035430296447}
 --- !u!1 &5980260035430296441
 GameObject:
@@ -1086,7 +1086,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Degree
 
-    Value: 3'
+    Value: 10'
 --- !u!1 &5980260035879105838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Flag
 
-    Value: 4'
+    Value: 12'
 --- !u!1 &5980260036225036678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1180,7 @@ GameObject:
   - component: {fileID: 5980260036225036677}
   - component: {fileID: 5980260036225036676}
   m_Layer: 5
-  m_Name: Item4
+  m_Name: Item3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1198,7 +1198,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5980260034637595734}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1390,8 +1390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopID: 4
-  itemCost: 4
-  profil: {fileID: 5980260036225036676}
+  itemCost: 12
+  profil: {fileID: 5980260035105957198}
 --- !u!1 &5980260036266381797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,4 +1604,4 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Goat
 
-    Value: 1'
+    Value: 5'
