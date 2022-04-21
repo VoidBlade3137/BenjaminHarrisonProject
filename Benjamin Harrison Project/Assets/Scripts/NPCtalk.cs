@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCtalk : MonoBehaviour
 {
     public Dialouge dialouge;
+    public Sprite npcPort;
 
     void Update()
     {
@@ -15,7 +16,12 @@ public class NPCtalk : MonoBehaviour
                 if (this.gameObject.tag == "Talkable")
                 {
                     FindObjectOfType<Player>().StartTalking();
-                    FindObjectOfType<DialougeManager>().StartDialouge(dialouge);
+                    FindObjectOfType<DialougeManager>().StartDialouge(dialouge, npcPort);
+                }
+                else if (this.gameObject.tag == "Debator")
+                {
+                    FindObjectOfType<Player>().StartTalking();
+                    FindObjectOfType<DialougeManager>().Challenge(dialouge, npcPort);
                 }
                 else if (this.gameObject.tag == "Shop")
                 {

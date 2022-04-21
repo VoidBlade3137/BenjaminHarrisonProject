@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoteMechanics : MonoBehaviour
+public class finalWord : MonoBehaviour
 {
     public bool hitable;
 
@@ -11,12 +11,12 @@ public class NoteMechanics : MonoBehaviour
 
     public string noteType;
 
-    public static bool notStopped = true;
+    public static bool notStopped2 = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,10 +26,10 @@ public class NoteMechanics : MonoBehaviour
         {
             if (hitable)
             {
-                if (notStopped)
+                if (notStopped2)
                 {
-                    FindObjectOfType<DebatePlayer>().moveToBeat(noteType);
-                    Destroy(this.gameObject);
+                    FindObjectOfType<DebatePlayer>().finalDebateWords(noteType);
+                    GetComponent<SpriteRenderer>().enabled = false;
                 }
             }
         }
@@ -37,7 +37,7 @@ public class NoteMechanics : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "noteController")
+        if (other.tag == "noteController")
         {
             hitable = true;
         }

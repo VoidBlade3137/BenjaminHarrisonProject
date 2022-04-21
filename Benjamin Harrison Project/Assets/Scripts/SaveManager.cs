@@ -76,4 +76,10 @@ public class SaveManager : MonoBehaviour
             print("there is no save data to load");
         }
     }
+
+    public void Accepted()
+    {
+        sceneChangeSaving();
+        SceneManager.LoadScene(debateNumber);
+    }
 }

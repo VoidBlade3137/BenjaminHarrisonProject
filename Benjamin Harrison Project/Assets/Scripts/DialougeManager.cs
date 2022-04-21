@@ -12,9 +12,12 @@ public class DialougeManager : MonoBehaviour
     public Image enemyPort;
     public bool portMode;
 
+    public GameObject choices;
+
     // Start is called before the first frame update
     void Start()
     {
+        choices.SetActive(false);
         sentences = new Queue<string>();
     }
 
@@ -36,8 +39,9 @@ public class DialougeManager : MonoBehaviour
         anime.SetBool("isShopping", true);
     }
 
-    public void StartDialouge(Dialouge dialouge)
+    public void StartDialouge(Dialouge dialouge, Sprite npcPort)
     {
+        enemyPort.sprite = npcPort;
         anime.SetBool("isOpen", true);
         sentences.Clear();
 
@@ -94,5 +98,17 @@ public class DialougeManager : MonoBehaviour
             enemyPort.enabled = true;
             
         }
+    }
+
+    public void Challenge(Dialouge dialouge, Sprite npcPort)
+    {
+        StartDialouge(dialouge, npcPort);
+        choices.SetActive(true);
+    }
+
+    public void Decline()
+    {
+        BacktoGame();
+        choices.SetActive(false);
     }
 }

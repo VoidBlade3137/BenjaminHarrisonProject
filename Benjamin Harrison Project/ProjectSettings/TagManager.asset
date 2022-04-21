@@ -9,6 +9,7 @@ TagManager:
   - Shop
   - noteController
   - Artifact
+  - Debator
   layers:
   - Default
   - TransparentFX
