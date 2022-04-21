@@ -35,6 +35,17 @@ public class Player : MonoBehaviour
     public int d5Score;
     public int totalScore;
 
+    public Image pausedGoat;
+    public Image pausedTelegram;
+    public Image pausedDegree;
+    public Image pausedFlag;
+    public Image pausedCane;
+    public Image pausedSword;
+    public Image pausedBook;
+    public Image pausedChair;
+
+    [SerializeField] private Text scoreValText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +86,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown("p"))
         {
+            visualizeNPause();
+
             StartTalking();
             screen.SetActive(true);
 
@@ -105,6 +118,28 @@ public class Player : MonoBehaviour
             brickNumber += cb.brickValue;
             brickText.text = brickNumber.ToString();
             rawScore += 10;
+        }
+
+        if (collision.gameObject.CompareTag("Artifact"))
+        {
+            Collect_Brick cb = collision.GetComponent<Collect_Brick>();
+            if(cb.brickValue == 1)
+            {
+                 hasCane = true;
+            }
+            if (cb.brickValue == 2)
+            {
+                hasSword = true;
+            }
+            if (cb.brickValue == 3)
+            {
+                hasBook = true;
+            }
+            if (cb.brickValue == 4)
+            {
+                hasChair = true;
+            }
+            rawScore += 20;
         }
     }
 
@@ -196,5 +231,61 @@ public class Player : MonoBehaviour
     public void send2Save()
     {
         SaveData.control.overwroldSaving(brickNumber, hasGoat, hasTelegram, hasDegree, hasFlag, hasCane, hasSword, hasBook, hasChair, rawScore, d1Score, d2Score, d3Score, d4Score, d5Score);
+    }
+
+    public void visualizeNPause()
+    {
+        if (hasGoat)
+        {
+            Color newColor = pausedGoat.color;
+            newColor.a = 1f;
+            pausedGoat.color = newColor;
+        }
+        if (hasTelegram)
+        {
+            Color newColor = pausedTelegram.color;
+            newColor.a = 1f;
+            pausedTelegram.color = newColor;
+        }
+        if (hasDegree)
+        {
+            Color newColor = pausedDegree.color;
+            newColor.a = 1f;
+            pausedDegree.color = newColor;
+        }
+        if (hasFlag)
+        {
+            Color newColor = pausedFlag.color;
+            newColor.a = 1f;
+            pausedFlag.color = newColor;
+        }
+        if (hasCane)
+        {
+            Color newColor = pausedCane.color;
+            newColor.a = 1f;
+            pausedCane.color = newColor;
+        }
+        if (hasSword)
+        {
+            Color newColor = pausedSword.color;
+            newColor.a = 1f;
+            pausedSword.color = newColor;
+        }
+        if (hasBook)
+        {
+            Color newColor = pausedBook.color;
+            newColor.a = 1f;
+            pausedBook.color = newColor;
+        }
+        if (hasChair)
+        {
+            Color newColor = pausedChair.color;
+            newColor.a = 1f;
+            pausedChair.color = newColor;
+        }
+
+        totalScore = rawScore + d1Score + d2Score + d3Score + d4Score + d5Score;
+
+        scoreValText.text = totalScore.ToString();
     }
 }

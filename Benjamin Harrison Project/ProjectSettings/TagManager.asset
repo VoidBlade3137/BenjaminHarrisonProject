@@ -8,6 +8,7 @@ TagManager:
   - Talkable
   - Shop
   - noteController
+  - Artifact
   layers:
   - Default
   - TransparentFX
