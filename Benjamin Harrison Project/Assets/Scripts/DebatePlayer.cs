@@ -118,6 +118,11 @@ public class DebatePlayer : MonoBehaviour
         } 
     }
 
+    public void finalMissed()
+    {
+        StartCoroutine(deabteEnding());
+    }
+
     IEnumerator deabteEnding()
     {
         yield return new WaitForSeconds(1f);

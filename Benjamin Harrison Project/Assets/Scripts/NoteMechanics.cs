@@ -41,6 +41,11 @@ public class NoteMechanics : MonoBehaviour
         {
             hitable = true;
         }
+
+        if (other.tag == "missed")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

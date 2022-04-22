@@ -109,6 +109,12 @@ public class DialougeManager : MonoBehaviour
     public void Decline()
     {
         BacktoGame();
+        StartCoroutine(wait2Disapear());
+    }
+
+    IEnumerator wait2Disapear()
+    {
+        yield return new WaitForSeconds(2);
         choices.SetActive(false);
     }
 }

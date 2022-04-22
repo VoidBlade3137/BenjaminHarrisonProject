@@ -41,6 +41,11 @@ public class finalWord : MonoBehaviour
         {
             hitable = true;
         }
+
+        if (other.tag == "missed")
+        {
+            FindObjectOfType<DebatePlayer>().finalMissed();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

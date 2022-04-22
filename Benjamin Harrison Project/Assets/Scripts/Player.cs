@@ -99,6 +99,10 @@ public class Player : MonoBehaviour
 
             Time.timeScale = 0f;
         }
+
+        totalScore = rawScore + d1Score + d2Score + d3Score + d4Score + d5Score;
+
+        scoreValText.text = totalScore.ToString();
     }
 
     void FixedUpdate()    
@@ -283,9 +287,10 @@ public class Player : MonoBehaviour
             newColor.a = 1f;
             pausedChair.color = newColor;
         }
+    }
 
-        totalScore = rawScore + d1Score + d2Score + d3Score + d4Score + d5Score;
-
-        scoreValText.text = totalScore.ToString();
+    public void returnPlacement(Vector3 spawnPoint)
+    {
+        transform.position = spawnPoint;
     }
 }

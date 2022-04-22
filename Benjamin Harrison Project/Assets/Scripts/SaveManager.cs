@@ -12,12 +12,15 @@ public class SaveManager : MonoBehaviour
     public GameObject shopTelegram;
     public GameObject shopDegree;
     public GameObject shopFlag;
+    public GameObject overworldPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
         if (inOverworld)
         {
+            SaveData.control.givePlayerPosition();
+            
             SaveData.control.loadInOverworld(shopGoat, shopTelegram, shopDegree, shopFlag);
         }
         else if (inDebate)
@@ -79,7 +82,8 @@ public class SaveManager : MonoBehaviour
 
     public void Accepted()
     {
-        sceneChangeSaving();
+        SaveData.control.getPlayerPosition(overworldPlayer);
+        sceneChangeSaving(); 
         SceneManager.LoadScene(debateNumber);
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - noteController
   - Artifact
   - Debator
+  - missed
   layers:
   - Default
   - TransparentFX

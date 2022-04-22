@@ -25,6 +25,9 @@ public class SaveData : MonoBehaviour
     private int currentScene;
     public bool hasGameData = true;
 
+    public bool hasPositionData;
+    public Vector3 spawnPoint;
+
     //call before start
     void Awake()
     {
@@ -199,5 +202,20 @@ public class SaveData : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public void getPlayerPosition(GameObject overworldPlayer)
+    {
+        spawnPoint = overworldPlayer.transform.position;
+        hasPositionData = true;
+    }
+
+    public void givePlayerPosition()
+    {
+        if (hasPositionData)
+        {
+            FindObjectOfType<Player>().returnPlacement(spawnPoint);
+            hasPositionData = false;
+        }
     }
 }
