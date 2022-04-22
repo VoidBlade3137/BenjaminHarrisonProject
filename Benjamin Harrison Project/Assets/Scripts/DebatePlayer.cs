@@ -79,6 +79,8 @@ public class DebatePlayer : MonoBehaviour
                 {
                     DownGoat.SetActive(true);
                 }
+
+                debateScore += 5;
             }
 
             debateScore += 10;
