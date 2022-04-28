@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialougeManager : MonoBehaviour
 {
     private Queue<string> sentences;
+    private Queue<int> refs;
     public Text dialougeText;
     public Animator anime;
     public Image benPort;
@@ -54,15 +55,16 @@ public class DialougeManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-            if (sentences.Count == 0)
-            {
-                BacktoGame();
-                return;
-            }
-            string sentence = sentences.Dequeue();
-            StopAllCoroutines();
-            AlternatePort();
-            StartCoroutine(TypeSentence(sentence));
+        if (sentences.Count == 0)
+        {
+           BacktoGame();
+           return;
+        }
+        string sentence = sentences.Dequeue();
+
+        StopAllCoroutines();
+        AlternatePort();
+        StartCoroutine(TypeSentence(sentence));
     }
 
     IEnumerator TypeSentence (string sentence)
